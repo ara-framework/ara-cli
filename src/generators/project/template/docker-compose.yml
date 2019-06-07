@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+
+  nova-cluster:
+    restart: always
+    build: ./.ara/cluster
+    ports:
+      - 3000:8000
+
+  nova-proxy:
+    restart: always
+    build: ./.ara/proxy
+    ports:
+      - 8080:8080
+    links:
+      - nova-cluster
+    environment:
+      HYPERNOVA_BATCH: http://nova-cluster:8000/batch

@@ -1,0 +1,25 @@
+{
+  "name": "ara-cli",
+  "version": "0.1.0",
+  "description": "Ara Framework Command Line Interface",
+  "main": "src/index.js",
+  "bin": {
+    "ara": "src/index.js"
+  },
+  "license": "MIT",
+  "scripts": {
+    "prepublish": "npm run lint",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "cac": "^6.5.2",
+    "chalk": "^2.4.2",
+    "majo": "^0.7.1",
+    "sao": "^1.6.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.3"
+  }
+}
