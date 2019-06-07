@@ -2,6 +2,15 @@
   "name": "ara-cli",
   "version": "0.1.0",
   "description": "Ara Framework Command Line Interface",
+  "keywords": [
+    "ara",
+    "cli"
+  ],
+  "author": "Felipe Guizar Diaz <felipegaiacharly@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ara-framework/ara-cli.git"
+  },
   "main": "src/index.js",
   "bin": {
     "ara": "src/index.js"
