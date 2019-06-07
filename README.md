@@ -10,7 +10,7 @@ You can install the package from npm.
 npm i -g ara-cli
 ```
 
-##Usage
+## Usage
 
 ### Create Ara Project
 
