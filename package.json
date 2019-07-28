@@ -1,6 +1,6 @@
 {
   "name": "ara-cli",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "Ara Framework Command Line Interface",
   "keywords": [
     "ara",

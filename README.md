@@ -21,11 +21,11 @@ ara new:project ara-demo
 ### Create Nova Microfrontend
 
 ```bash
-ara new:nova
+ara new:nova <project-folder>
 ```
 
 By default the scaffolding for nova uses a Vue.js template but you can use more passing the flah `-t, --template`
 
 ```bash
-ara new:nova -t angular
+ara new:nova -t angular <nova-folder>
 ```
