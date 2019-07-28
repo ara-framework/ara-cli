@@ -1,4 +1,4 @@
-FROM marconi1992/hypernova-proxy:1.0.2
+FROM marconi1992/hypernova-proxy:1.0.3
 
 COPY config.json config.json
 
