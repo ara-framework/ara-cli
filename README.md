@@ -24,7 +24,14 @@ ara new:project ara-demo
 ara new:nova <project-folder>
 ```
 
-By default the scaffolding for nova uses a Vue.js template but you can use more passing the flah `-t, --template`
+By default the scaffolding for nova uses a Vue.js template but you can use more passing the flag `-t, --template`
+
+Supported templates:
+- vue
+- angular
+- svelte
+- preact
+- hyperapp
 
 ```bash
 ara new:nova -t angular <nova-folder>
