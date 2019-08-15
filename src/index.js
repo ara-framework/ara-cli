@@ -17,6 +17,7 @@ cli.command('new:nova <outDir>', 'New Micro-Frontend')
     const appPath = path.join(process.cwd(), outDir);
     const options = {
       outDir: appPath,
+      update: true,
       generator: `ara-framework/create-hypernova-${template}`,
     };
 
