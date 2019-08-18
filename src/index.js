@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 const cli = require('cac')();
-
-const path = require('path');
 const sao = require('sao');
+const path = require('path');
 
 const generateProject = require('./generators/project');
 const runLambda = require('./run/lambda');
 const serveAsset = require('./run/asset');
+const runProxy = require('./run/proxy');
 
 cli.command('new:project <outDir>', 'New Project')
   .action(outDir => generateProject(outDir));
@@ -40,5 +40,9 @@ cli.command('run:lambda', 'Run Hypernova lambda function')
       serveAsset(webpackConf);
     }
   });
+
+cli.command('run:proxy', 'Run Nova Proxy')
+  .option('--config [config]', 'Configuration file')
+  .action(({ config = './nova-proxy.json' }) => runProxy(config, path.join(__dirname, '../.ara')));
 
 cli.parse();
