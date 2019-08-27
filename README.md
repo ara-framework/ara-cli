@@ -65,6 +65,7 @@ Nova Proxy needs a configuration file:
     }
   ]
 }
+```
 
 Before to run the command we need to set the `HYPERNOVA_BATCH` variable using the Nova service endpoint.
 
