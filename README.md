@@ -65,6 +65,7 @@ Nova Proxy needs a configuration file:
     }
   ]
 }
+```
 
 Before to run the command we need to set the `HYPERNOVA_BATCH` variable using the Nova service endpoint.
 
@@ -75,4 +76,24 @@ export HYPERNOVA_BATCH=http://localhost:3000/batch
 The command uses a configuration file named `nova-proxy.json` in the folder where the command is running, otherwise you need to pass the `--config` parameter with a different path.
 ```
 ara run:proxy --config ./nova-proxy.json
+```
+
+### Run Nova Cluster
+
+Nova Cluster needs a configuration file in order to map the views with their nova servers.
+
+```json
+{
+  "Navbar": {
+    "server": "http://localhost:3031/batch"
+  },
+  "Home": {
+    "server": "http://localhost:3030/batch"
+  }
+}
+```
+
+The command uses a configuration file named `views.json` in the folder where the command is running, otherwise you need to pass the `--config` parameter with a different path.
+```
+ara run:cluster --config ./views.json
 ```
