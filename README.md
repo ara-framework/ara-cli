@@ -36,3 +36,44 @@ Supported templates:
 ```bash
 ara new:nova -t angular <nova-folder>
 ```
+
+### Run Hypernova (Nova) Lambda locally
+
+Run command:
+
+```shell
+ara run:lambda
+```
+
+Serve the client script locally using an S3 local server:
+
+```shell
+ara run:lambda --asset
+```
+
+### Run Nova Proxy
+
+Nova Proxy needs a configuration file:
+
+```json
+{
+  "locations": [
+    {
+      "path": "/",
+      "host": "http://localhost:8000",
+      "modifyResponse": true
+    }
+  ]
+}
+```
+
+Before to run the command we need to set the `HYPERNOVA_BATCH` variable using the Nova service endpoint.
+
+```shell
+export HYPERNOVA_BATCH=http://localhost:3000/batch
+```
+
+The command uses a configuration file named `nova-proxy.json` in the folder where the command is running, otherwise you need to pass the `--config` parameter with a different path.
+```
+ara run:proxy --config ./nova-proxy.json
+```
