@@ -8,7 +8,7 @@ module.exports = (handler, webpackConf) => {
   const webpack = require('webpack');
   const ServerlessOffline = require('serverless-offline/src/ServerlessOffline');
 
-  const [serverConf] = webpackConf.filter(conf => conf.target === 'node');
+  const [serverConf] = webpackConf.filter((conf) => conf.target === 'node');
 
   if (!serverConf) {
     throw Error('Missing webpack configuration with target set as "node"');
@@ -86,7 +86,7 @@ module.exports = (handler, webpackConf) => {
     isWatching = true;
 
     return Promise.resolve(slsOffline._buildServer())
-      .then(server => server.start());
+      .then((server) => server.start());
   });
 
   return compiler;

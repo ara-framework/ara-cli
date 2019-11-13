@@ -27,7 +27,8 @@ module.exports = async (config, dest) => {
         fs.chmodSync(executable, 755);
         spinner.succeed('Downloaded nova-proxy');
       } catch (error) {
-        spinner.fail('Downloadind nova-proxy failed');
+        console.error(error);
+        spinner.fail('Downloading nova-proxy failed');
         return null;
       }
     } else {
@@ -42,9 +43,13 @@ module.exports = async (config, dest) => {
       return console.error(chalk.red('HYPERNOVA_BATCH environment variable is required'));
     }
     console.log(chalk.green('Nova proxy running!!'));
-    await execa(executable);
+    const child = execa(executable);
+
+    child.stdout.pipe(process.stdout);
+    child.stderr.pipe(process.stderr);
   } catch (error) {
-    console.error(chalk.red(error.stderr || 'Nova proxy failed when running'));
+    console.error(error);
+    console.error(chalk.red('Nova proxy failed when running'));
   }
 
   return null;
