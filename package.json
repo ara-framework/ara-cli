@@ -23,7 +23,7 @@
   "dependencies": {
     "aws-sdk": "^2.509.0",
     "cac": "^6.5.2",
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "download": "^7.1.0",
     "execa": "^3.3.0",
     "majo": "^0.8.0",
