@@ -7,7 +7,7 @@ const corsConfig = require.resolve('s3rver/example/cors.xml');
 const defaultBucket = 'assets';
 
 module.exports = (webpackConf) => {
-  const [clientConf] = webpackConf.filter(conf => conf.target === 'web');
+  const [clientConf] = webpackConf.filter((conf) => conf.target === 'web');
 
   if (!clientConf) {
     throw Error('Missing webpack configuration with target set as "web"');
@@ -62,7 +62,7 @@ module.exports = (webpackConf) => {
           ContentType: 'text/javascript',
           Body: fs.readFileSync(path.join(outputPath, fileName)),
         }).promise()
-          .catch(e => console.error(e))
+          .catch((e) => console.error(e))
           .then(() => console.log(chalk.green(`Client script in "${defaultBucket}" bucket`)));
       });
     }

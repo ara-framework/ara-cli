@@ -27,7 +27,8 @@ module.exports = async (config, dest) => {
         fs.chmodSync(executable, 755);
         spinner.succeed('Downloaded nova-cluster');
       } catch (error) {
-        spinner.fail('Downloadind nova-cluster failed');
+        console.error(error);
+        spinner.fail('Downloading nova-cluster failed');
         return null;
       }
     } else {
@@ -38,9 +39,13 @@ module.exports = async (config, dest) => {
   try {
     process.env.CONFIG_FILE = process.env.CONFIG_FILE || config;
 
-    execa(executable).stdout.pipe(process.stdout);
+    const child = execa(executable);
+
+    child.stdout.pipe(process.stdout);
+    child.stderr.pipe(process.stderr);
   } catch (error) {
-    console.error(chalk.red(error.stderr || 'Nova cluster failed when running'));
+    console.error(error);
+    console.error(chalk.red('Nova cluster failed when running'));
   }
 
   return null;

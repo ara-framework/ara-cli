@@ -10,7 +10,7 @@ const runProxy = require('./run/proxy');
 const runCluster = require('./run/cluster');
 
 cli.command('new:project <outDir>', 'New Project')
-  .action(outDir => generateProject(outDir));
+  .action((outDir) => generateProject(outDir));
 
 cli.command('new:nova <outDir>', 'New Micro-Frontend')
   .option('-t, --template <template>', 'Template Type')
