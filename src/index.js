@@ -44,7 +44,11 @@ cli.command('run:lambda', 'Run Hypernova lambda function')
 
 cli.command('run:proxy', 'Run Nova Proxy')
   .option('--config [config]', 'Configuration file')
-  .action(({ config = './nova-proxy.json' }) => runProxy(config, path.join(__dirname, '../.ara')));
+  .option('-p, --port [port]', 'Port running proxy', { default: 8080 })
+  .action(({ config = './nova-proxy.json', port }) => runProxy({
+    config,
+    port,
+  }, path.join(__dirname, '../.ara')));
 
 cli.command('run:cluster', 'Run Nova Cluster')
   .option('--config [config]', 'Configuration file')
