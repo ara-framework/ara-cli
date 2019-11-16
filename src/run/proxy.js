@@ -6,14 +6,16 @@ const ora = require('ora');
 const chalk = require('chalk');
 const execa = require('execa');
 
-module.exports = async (config, dest) => {
+const VERSION = '1.1.0';
+
+module.exports = async ({ config, port }, dest) => {
   let url;
-  let fileName = 'nova-proxy';
+  let fileName = `nova-proxy_${VERSION}`;
   const platform = os.platform();
   if (platform === 'darwin') {
-    url = 'https://github.com/ara-framework/nova-proxy/releases/download/1.0.5/nova-proxy-darwin-amd64';
+    url = `https://github.com/ara-framework/nova-proxy/releases/download/${VERSION}/nova-proxy-darwin-amd64`;
   } else if (platform === 'win32') {
-    url = 'https://github.com/ara-framework/nova-proxy/releases/download/1.0.5/nova-proxy-windows-amd64.exe';
+    url = `https://github.com/ara-framework/nova-proxy/releases/download/${VERSION}/nova-proxy-windows-amd64.exe`;
     fileName = `${fileName}.exe`;
   }
 
@@ -38,11 +40,12 @@ module.exports = async (config, dest) => {
 
   try {
     process.env.CONFIG_FILE = process.env.CONFIG_FILE || config;
+    process.env.PORT = process.env.PORT || port;
 
     if (!process.env.HYPERNOVA_BATCH) {
       return console.error(chalk.red('HYPERNOVA_BATCH environment variable is required'));
     }
-    console.log(chalk.green('Nova proxy running!!'));
+
     const child = execa(executable);
 
     child.stdout.pipe(process.stdout);
