@@ -12,6 +12,8 @@ module.exports = async (config, dest) => {
   const platform = os.platform();
   if (platform === 'darwin') {
     url = 'https://github.com/ara-framework/nova-cluster/releases/download/1.2.0/nova-cluster-darwin-amd64';
+  } else if (platform === 'linux') {
+    url = 'https://github.com/ara-framework/nova-cluster/releases/download/1.2.0/nova-cluster-linux-amd64';
   } else if (platform === 'win32') {
     url = 'https://github.com/ara-framework/nova-cluster/releases/download/1.2.0/nova-cluster-windows-amd64.exe';
     fileName = `${fileName}.exe`;

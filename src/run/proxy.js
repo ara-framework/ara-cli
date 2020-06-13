@@ -14,6 +14,8 @@ module.exports = async ({ config, port }, dest) => {
   const platform = os.platform();
   if (platform === 'darwin') {
     url = `https://github.com/ara-framework/nova-proxy/releases/download/${VERSION}/nova-proxy-darwin-amd64`;
+  } else if (platform === 'linux') {
+    url = `https://github.com/ara-framework/nova-proxy/releases/download/${VERSION}/nova-proxy-linux-amd64`;
   } else if (platform === 'win32') {
     url = `https://github.com/ara-framework/nova-proxy/releases/download/${VERSION}/nova-proxy-windows-amd64.exe`;
     fileName = `${fileName}.exe`;
