@@ -31,7 +31,7 @@
     "s3rver": "^3.3.0",
     "sao": "^1.6.1",
     "serverless-offline": "^5.10.1",
-    "webpack": "^4.39.2"
+    "webpack": "^5.36.1"
   },
   "devDependencies": {
     "eslint": "^7.8.1",
